@@ -1,0 +1,223 @@
+/* Import a modern font - Roboto is clean and widely used */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* --- CSS Variables for a Modern Theme --- */
+:root {
+    /* Colors */
+    --primary-color: #007bff; /* A vibrant blue for primary actions and highlights */
+    --secondary-color: #6c757d; /* A muted grey for secondary elements */
+    --accent-color: #28a745; /* A success green for positive actions */
+    --background-light: #f8f9fa; /* Light background for the overall page */
+    --background-card: #ffffff; /* White background for cards and prominent sections */
+    --text-dark: #343a40; /* Dark text for readability */
+    --text-light: #6c757d; /* Lighter text for secondary information */
+    --border-color: #e9ecef; /* Light border for subtle separation */
+    --hover-color: #0056b3; /* Darker primary for hover states */
+
+    /* Spacing */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+
+    /* Borders and Shadows */
+    --border-radius-sm: 6px;
+    --border-radius-md: 10px;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Base Body Styling --- */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Main Content Area --- */
+.main {
+    margin-top: var(--spacing-xl); /* Adjusted from 5% for more consistent spacing */
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: var(--spacing-lg); /* Spacing between flex items */
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start of the cross axis */
+}
+
+/* --- Card Styling --- */
+.card1,
+.card2 {
+    background-color: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    padding: var(--spacing-lg);
+    flex: 1; /* Allow cards to grow and shrink */
+    min-width: 300px; /* Minimum width for cards before wrapping */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: var(--spacing-lg); /* Ensure consistent vertical spacing */
+}
+
+.card1:hover,
+.card2:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: var(--shadow-lg); /* More pronounced shadow on hover */
+}
+
+/* Example of how card content could be structured and styled within PHP files
+.card-header-custom {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--primary-color);
+}
+
+.card-body-custom {
+    font-size: 1em;
+    color: var(--text-light);
+}
+*/
+
+/* --- Specific Card Adjustments (from original CSS) --- */
+.card1 {
+    /* margin-left: 5%; */ /* Replaced by gap in .main and flex behavior */
+}
+
+.card2 {
+    /* margin-left: 5%; */ /* Replaced by gap in .main and flex behavior */
+}
+
+/* --- Footer Styling --- */
+footer {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    text-align: center;
+    color: var(--text-light);
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-card);
+}
+
+/* --- General Elements (Assuming Bootstrap is used, these override/enhance) --- */
+
+/* Buttons */
+.btn {
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--hover-color);
+    border-color: var(--hover-color);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268; /* Slightly darker grey */
+    border-color: #545b62;
+    transform: translateY(-1px);
+}
+
+/* Form Controls */
+.form-control, .form-select {
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Primary color with transparency */
+    outline: none;
+}
+
+/* Tables (if used, enhance Bootstrap's default) */
+.table {
+    width: 100%;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-dark);
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden; /* Ensures rounded corners are visible */
+    box-shadow: var(--shadow-sm);
+}
+
+.table th, .table td {
+    padding: var(--spacing-md);
+    vertical-align: top;
+    border-top: 1px solid var(--border-color);
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid var(--border-color);
+    background-color: var(--background-card);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1; /* Light hover for table rows */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) { /* Adjusted breakpoint for more common tablet/mobile sizes */
+    .main {
+        flex-direction: column;
+        align-items: center; /* Center items when stacked */
+        padding: var(--spacing-md);
+    }
+
+    .card1,
+    .card2 {
+        width: 100%; /* Full width on small screens */
+        min-width: unset; /* Remove min-width restriction */
+        margin-left: 0; /* Remove specific left margins */
+    }
+
+    /* Original mobile styles (adjusted for new variables/structure) */
+    .card1 {
+        /* margin-left: 10%; */ /* Replaced by general centering */
+    }
+    .card2 {
+        margin-top: var(--spacing-md); /* Consistent spacing */
+        /* margin-left: 10%; */ /* Replaced by general centering */
+    }
+}
+
+@media (max-width: 576px) { /* Extra small devices */
+    body {
+        font-size: 0.9em;
+    }
+    .main {
+        padding: var(--spacing-sm);
+    }
+    .card1, .card2 {
+        padding: var(--spacing-md);
+    }
+}

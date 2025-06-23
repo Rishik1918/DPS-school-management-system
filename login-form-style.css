@@ -1,0 +1,393 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Removed .light and .dark variables from here as they are not used globally for this specific fix.
+   Assuming they are handled elsewhere or dynamically. */
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html, body { /* Ensure html and body take full height of the viewport */
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--backgroundColor); /* Assuming var(--backgroundColor) is defined, e.g., via a class on body or html */
+  display: flex; /* Use flexbox for body */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  min-height: 100vh; /* Ensure body takes at least the full viewport height */
+  overflow: hidden; /* Prevent body scroll if content overflows, adjust if needed for mobile */
+}
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  max-width: 900px; /* Adjusted max-width for better visual appeal */
+  width: 100%;
+  background: #fff; /* Default background for light mode */
+  padding: 0;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  /* overflow: hidden; */
+  margin: 20px auto; /* Add some margin around the container to prevent it from touching screen edges */
+}
+
+/* Theme variables (moved to a more logical place or assume they are applied to body/html) */
+body.light {
+  --mainColor: #64bcf4;
+  --hoverColor: #5bacdf;
+  --backgroundColor: #f1f8fc;
+  --darkOne: #312f3a;
+  --darkTwo: #45424b;
+  --lightOne: #919191;
+  --lightTwo: #aaa;
+}
+
+body.dark {
+  --mainColor: #64bcf4;
+  --hoverColor: #5bacdf;
+  --backgroundColor: #192e3a;
+  --darkOne: #f3f3f3;
+  --darkTwo: #fff;
+  --lightOne: #030202;
+  --lightTwo: #0e0b0b;
+}
+
+.dark .container {
+  background: var(--darkTwo);
+}
+
+.cover {
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px 0 0 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cover .front {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, var(--mainColor), #4CAF50);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cover .front img {
+  width: 75%; /* Adjusted for better appearance on larger screens */
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.cover .text {
+  color: #030202;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.cover .text-1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+
+}
+
+.cover .text-2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  
+}
+
+.forms {
+  width: 50%;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-content {
+  width: 100%;
+}
+
+.login-form .title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--darkOne);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dark .login-form .title {
+  color: var(--lightTwo);
+}
+
+.alert-box {
+  min-height: 40px; /* Ensure space for alert */
+  margin-bottom: 20px;
+}
+
+.alert {
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  display: none; /* Hidden by default, shown by JS */
+}
+
+.input-boxes {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  position: relative;
+  height: 50px;
+  width: 100%;
+  margin: 25px 0;
+  display: flex;
+  align-items: center;
+}
+
+.input-box i {
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+  color: var(--mainColor);
+  padding-right: 10px;
+}
+
+.input-box input {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 35px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 2px solid #ccc;
+  transition: all 0.3s ease;
+  background: transparent;
+  color: var(--darkOne);
+}
+
+.dark .input-box input {
+  color: var(--lightTwo);
+  border-bottom: 2px solid var(--lightOne);
+}
+
+.input-box input:focus,
+.input-box input:valid {
+  border-color: var(--mainColor);
+}
+
+.input-box input::placeholder {
+  color: var(--lightOne);
+}
+
+.dark .input-box input::placeholder {
+  color: var(--lightTwo);
+}
+
+
+.input-box .bi-eye-fill,
+.input-box .bi-eye-slash-fill {
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+  color: var(--lightOne);
+}
+
+.dark .input-box .bi-eye-fill,
+.dark .input-box .bi-eye-slash-fill {
+  color: var(--lightTwo);
+}
+
+.text {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--lightOne);
+  text-align: right;
+  margin-top: -15px;
+  cursor:pointer;
+}
+
+.text a {
+  color: var(--mainColor);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor:pointer;
+}
+
+.text a:hover {
+  text-decoration: underline;
+  cursor:pointer;
+}
+
+.button {
+  color: #11aa44;
+  margin-top: 40px;
+}
+
+.button input[type="submit"], .button button {
+  color: #130e0e; /* Button text color (should remain white on colored button) */
+  background: var(--mainColor);
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-left: 100px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--mainColor); /* Added border */
+  transition: all 0.3s ease;
+  width: 30%;
+  height: auto;
+  min-height: 45px;
+  box-shadow: 0 2px 5px rgba(129, 34, 180, 0.2); /* Added box-shadow for depth */
+
+}
+
+#verifyCodeBtn{
+  color: #080a08; /* Button text color (should remain white on colored button) */
+  background: var(--mainColor);
+  border-radius: 8px;
+  padding: 10px 0;
+  margin-left: 100px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--mainColor); /* Added border */
+  transition: all 0.3s ease;
+  width: 30%;
+  height: auto;
+  min-height: 45px;
+  box-shadow: 0 2px 5px rgba(129, 34, 180, 0.2); /* Added box-shadow for depth */
+
+}
+
+.button input[type="submit"]:hover, .button button:hover {
+  background: var(--hoverColor);
+  transform: translateY(-2px);
+  border-color: var(--hoverColor);
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  color: var(--darkOne);
+}
+
+.dark .form-check {
+  color: var(--lightTwo);
+}
+
+.form-check-input {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    max-width: 400px; /* Constrain width for better mobile experience */
+    padding: 0;
+    margin: 20px auto; /* Center container horizontally and add margin */
+  }
+
+  .cover {
+    width: 100%;
+    height: 250px;
+    border-radius: 15px 15px 0 0;
+  }
+
+  .forms {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .cover .front img {
+    width: 80%;
+  }
+
+  .cover .text-1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+ 
+  }
+
+  .cover .text-2 {
+    font-size: 1.5rem;
+  font-weight: 600;
+  font-style: italic;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  margin-top:0px;
+  
+  }
+
+  .login-form .title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cover {
+    height: 200px;
+  }
+  .cover .front img {
+    width:60%;
+  }
+  .cover .text-1 {
+    font-size: 1.3rem;
+  }
+  .cover .text-2 {
+    font-size: 0.9rem;
+  }
+  .forms {
+    padding: 25px 15px;
+  }
+  .login-form .title {
+    font-size: 1.6rem;
+  }
+  .input-box input {
+    font-size: 0.9rem;
+  }
+}
