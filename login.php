@@ -54,11 +54,19 @@ if (isset($_SESSION['uid'])) {
     <!-- <input type="checkbox" id="flip"> -->
     <div class="cover">
       <div class="front">
-        <img src="images/log.jpg" alt="">
+        <img src="images/log.jpg" alt=""><br>
         <div class="text">
-          <span class="text-1" style="font-size:1.6rem">SCHOOL MANAGEMENT SYSTEM<br></span>
+          <span class="text-1" style="font-size:1.6rem;font-weight:bold;margin-bottom:30px;">SCHOOL MANAGEMENT SYSTEM<br></span><br>
       
-          <img src="images/2.jpg" alt="Website Logo" display:flex; style="margin-bottom: 15px;height: 60px; width: 60px; "><br>
+          <img src="images/2.jpg" alt="Website Logo" class="small" display:flex; style="margin-bottom: 15px;height: 60px; width: 60px; ">
+        <!-- <style>
+        body {
+          background-image: url('./images/mp.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-opacity: 0.9;
+        } -->
+        </style>
           <span class="text-2">Service Before Self</span>
         </div>
       </div>

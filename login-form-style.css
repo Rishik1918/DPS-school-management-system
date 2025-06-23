@@ -33,7 +33,9 @@ body {
 img {
   width: 100%;
 }
-
+.small{
+  .opacity: 0.8;
+}
 a {
   text-decoration: none;
 }
