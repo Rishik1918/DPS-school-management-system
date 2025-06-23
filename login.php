@@ -56,9 +56,9 @@ if (isset($_SESSION['uid'])) {
       <div class="front">
         <img src="images/log.jpg" alt="">
         <div class="text">
-          <span class="text-1">SCHOOL MANAGEMENT SYSTEM<br></span>
-          <br>
-          <!-- <img src="images/2.jpg" alt="Website Logo" style="margin-bottom: 15px;height: 60px; width: 60px; "><br> -->
+          <span class="text-1" style="font-size:1.6rem">SCHOOL MANAGEMENT SYSTEM<br></span>
+      
+          <img src="images/2.jpg" alt="Website Logo" display:flex; style="margin-bottom: 15px;height: 60px; width: 60px; "><br>
           <span class="text-2">Service Before Self</span>
         </div>
       </div>
