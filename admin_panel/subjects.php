@@ -227,7 +227,7 @@
                                 <div class="attendenceTable" style="display: block;">
                                     <div class="header">
                                         <i class='bx bx-list-ul'></i>
-                                        <h3 id="subject-table-header">Class 12 Subjects</h3>
+                                        <h3 id="subject-table-header">Subjects</h3>
 
 
 
