@@ -17,7 +17,7 @@ error_reporting(0);
     
     <link rel="stylesheet" type="text/css" href="style.css">
     <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
-    <title>ERP - owner</title>
+    <title>SMS - owner</title>
     <link rel="stylesheet" href="../css/oranbyte-google-translator.css">
     <script src="../js/oranbyte-google-translator.js"></script>
     <style type="text/css">

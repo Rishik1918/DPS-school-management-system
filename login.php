@@ -58,7 +58,7 @@ if (isset($_SESSION['uid'])) {
         <div class="text">
           <span class="text-1" style="font-size:1.6rem;font-weight:bold;margin-bottom:30px;">SCHOOL MANAGEMENT SYSTEM<br></span><br>
       
-          <img src="images/2.jpg" alt="Website Logo" class="small-a" display:flex; style="margin-bottom: 15px;height: 60px; width: 60px; ">
+          <img src="images/2.png" alt="Website Logo" class="small-a" display:flex; style="margin-bottom: 15px;height: 45px; width: 45px; ">
         <!-- <style>
         body {
           background-image: url('./images/mp.jpg');
@@ -67,7 +67,7 @@ if (isset($_SESSION['uid'])) {
           background-opacity: 0.9;
         } -->
         </style>
-          <span class="text-2">Service Before Self</span>
+          <span class="text-2" style="margin-right:23px;">Service Before Self</span>
         </div>
       </div>
 

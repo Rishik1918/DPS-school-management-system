@@ -4,15 +4,17 @@
 /* --- CSS Variables for a Modern Theme --- */
 :root {
     /* Colors */
-    --primary-color: #007bff; /* A vibrant blue for primary actions and highlights */
-    --secondary-color: #6c757d; /* A muted grey for secondary elements */
-    --accent-color: #28a745; /* A success green for positive actions */
-    --background-light: #f8f9fa; /* Light background for the overall page */
-    --background-card: #ffffff; /* White background for cards and prominent sections */
-    --text-dark: #343a40; /* Dark text for readability */
-    --text-light: #6c757d; /* Lighter text for secondary information */
-    --border-color: #e9ecef; /* Light border for subtle separation */
-    --hover-color: #0056b3; /* Darker primary for hover states */
+    --primary-color: #007BFF; /* A vibrant blue for primary actions and highlights */
+    --secondary-color: #6C757D; /* A muted grey for secondary elements */
+    --accent-color: #28A745; /* A success green for positive actions */
+    --background-light: #F8F9FA; /* Light background for the overall page */
+    --background-card: #FFFFFF; /* White background for cards and prominent sections */
+    --text-dark: #343A40; /* Dark text for readability */
+    --text-light: #6C757D; /* Lighter text for secondary information */
+    --border-color: #E9ECEF; /* Light border for subtle separation */
+    --hover-color: #0056B3; /* Darker primary for hover states */
+    --focus-shadow-color: rgba(0, 123, 255, 0.25); /* Focus shadow for inputs */
+    --table-hover-bg: #F1F1F1; /* Light hover for table rows */
 
     /* Spacing */
     --spacing-xs: 4px;
@@ -24,9 +26,9 @@
     /* Borders and Shadows */
     --border-radius-sm: 6px;
     --border-radius-md: 10px;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
-    --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.2);
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08); /* Lighter shadow */
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1); /* Refined shadow */
+    --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15); /* Pronounced shadow on hover */
 }
 
 /* --- Base Body Styling --- */
@@ -43,13 +45,13 @@ body {
 
 /* --- Main Content Area --- */
 .main {
-    margin-top: var(--spacing-xl); /* Adjusted from 5% for more consistent spacing */
+    margin-top: var(--spacing-xl);
     padding: var(--spacing-lg);
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
-    gap: var(--spacing-lg); /* Spacing between flex items */
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
     justify-content: center;
-    align-items: flex-start; /* Align items to the start of the cross axis */
+    align-items: flex-start;
 }
 
 /* --- Card Styling --- */
@@ -60,16 +62,16 @@ body {
     border-radius: var(--border-radius-md);
     box-shadow: var(--shadow-md);
     padding: var(--spacing-lg);
-    flex: 1; /* Allow cards to grow and shrink */
-    min-width: 300px; /* Minimum width for cards before wrapping */
+    flex: 10;
+    min-width: 300px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: var(--spacing-lg); /* Ensure consistent vertical spacing */
+    margin-bottom: var(--spacing-lg);
 }
 
 .card1:hover,
 .card2:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
-    box-shadow: var(--shadow-lg); /* More pronounced shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
 }
 
 /* Example of how card content could be structured and styled within PHP files
@@ -88,11 +90,11 @@ body {
 
 /* --- Specific Card Adjustments (from original CSS) --- */
 .card1 {
-    /* margin-left: 5%; */ /* Replaced by gap in .main and flex behavior */
+    margin-left: 15%;  /* Replaced by gap in .main and flex behavior */
 }
 
 .card2 {
-    /* margin-left: 5%; */ /* Replaced by gap in .main and flex behavior */
+    margin-left: 5%;  /*Replaced by gap in .main and flex behavior */
 }
 
 /* --- Footer Styling --- */
@@ -113,7 +115,8 @@ footer {
     border-radius: var(--border-radius-sm);
     padding: var(--spacing-sm) var(--spacing-md);
     font-weight: 500;
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    cursor: pointer; /* Indicate interactivity */
 }
 
 .btn-primary {
@@ -126,6 +129,7 @@ footer {
     background-color: var(--hover-color);
     border-color: var(--hover-color);
     transform: translateY(-1px);
+    box-shadow: var(--shadow-sm); /* Subtle shadow on hover */
 }
 
 .btn-secondary {
@@ -135,9 +139,10 @@ footer {
 }
 
 .btn-secondary:hover {
-    background-color: #5a6268; /* Slightly darker grey */
-    border-color: #545b62;
+    background-color: #5A6268; /* Slightly darker grey */
+    border-color: #545B62;
     transform: translateY(-1px);
+    box-shadow: var(--shadow-sm); /* Subtle shadow on hover */
 }
 
 /* Form Controls */
@@ -145,13 +150,15 @@ footer {
     border-radius: var(--border-radius-sm);
     border: 1px solid var(--border-color);
     padding: var(--spacing-sm);
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); /* Lighter inset shadow */
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    width: 100%; /* Ensure full width within parent */
+    max-width: 100%; /* Prevent overflow */
 }
 
 .form-control:focus, .form-select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Primary color with transparency */
+    box-shadow: 0 0 0 0.2rem var(--focus-shadow-color);
     outline: none;
 }
 
@@ -163,13 +170,13 @@ footer {
     border-collapse: separate;
     border-spacing: 0;
     border-radius: var(--border-radius-sm);
-    overflow: hidden; /* Ensures rounded corners are visible */
+    overflow: hidden;
     box-shadow: var(--shadow-sm);
 }
 
 .table th, .table td {
     padding: var(--spacing-md);
-    vertical-align: top;
+    vertical-align: middle; /* Align content vertically */
     border-top: 1px solid var(--border-color);
 }
 
@@ -179,38 +186,39 @@ footer {
     background-color: var(--background-card);
     color: var(--primary-color);
     font-weight: 500;
+    text-align: left; /* Align headers to left */
 }
 
 .table tbody tr:hover {
-    background-color: #f1f1f1; /* Light hover for table rows */
+    background-color: var(--table-hover-bg);
 }
 
 /* --- Responsive Adjustments --- */
-@media (max-width: 768px) { /* Adjusted breakpoint for more common tablet/mobile sizes */
+@media (max-width: 768px) {
     .main {
         flex-direction: column;
-        align-items: center; /* Center items when stacked */
+        align-items: center;
         padding: var(--spacing-md);
     }
 
     .card1,
     .card2 {
-        width: 100%; /* Full width on small screens */
-        min-width: unset; /* Remove min-width restriction */
-        margin-left: 0; /* Remove specific left margins */
+        width: 50%;
+        min-width: unset;
+        margin-left: 10px;
     }
 
     /* Original mobile styles (adjusted for new variables/structure) */
     .card1 {
-        /* margin-left: 10%; */ /* Replaced by general centering */
+        margin-left: 10%; /* Replaced by general centering */
     }
     .card2 {
-        margin-top: var(--spacing-md); /* Consistent spacing */
-        /* margin-left: 10%; */ /* Replaced by general centering */
+        margin-top: var(--spacing-md);
+        margin-left: 10%; /* Replaced by general centering */
     }
 }
 
-@media (max-width: 576px) { /* Extra small devices */
+@media (max-width: 576px) {
     body {
         font-size: 0.9em;
     }
@@ -219,5 +227,9 @@ footer {
     }
     .card1, .card2 {
         padding: var(--spacing-md);
+    }
+    .btn {
+        padding: var(--spacing-sm) var(--spacing-md); /* Adjust button padding for smaller screens */
+        font-size: 0.9em;
     }
 }
