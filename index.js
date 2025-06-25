@@ -86,6 +86,17 @@ function submitForm(event) {
 
         if (data.status === "success") {
             error_msg.innerHTML = 'Login successful!';
+            // -------- IMPORTANT: Client-side redirection added here --------
+            if (data.role == "admin") {
+                window.location.href = 'admin_panel/dashboard.php';
+            } else if (data.role == "owner") {
+                window.location.href = 'owner_panel/index.php';
+            } else if (data.role == "teacher") {
+                window.location.href = 'teacher_panel/dashboard.php';
+            } else if (data.role == "student") {
+                window.location.href = 'student_panel/index.php';
+            }
+            // -------------------------------------------------------------
         } else {
             error_msg.innerHTML = data.message;
         }
