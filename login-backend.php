@@ -8,13 +8,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
      die();
 }else{
     
-    
-if (isset($_POST['email']) && isset($_POST['password'])) {
+    // Modified: Added isset($_POST['captcha']) to the main condition
+if (isset($_POST['email']) && isset($_POST['password']) && isset($_POST['captcha'])) { 
     include("assets/config.php");
 
     if ($conn) {
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['password']);
+        $user_captcha = mysqli_real_escape_string($conn, $_POST['captcha']); // Get user entered captcha
+
+        // CAPTCHA verification logic
+        if (!isset($_SESSION['captcha']) || strtolower($user_captcha) !== strtolower($_SESSION['captcha'])) {
+            $response['status'] = 'error';
+            $response['message'] = 'CAPTCHA verification failed!';
+            echo json_encode($response);
+            exit(); // Stop execution if CAPTCHA is incorrect
+        }
+
+        // Unset CAPTCHA after successful verification to prevent reuse
+        unset($_SESSION['captcha']);
 
         $sql = "SELECT id, role, password_hash FROM users WHERE email=?";
         $stmt = mysqli_prepare($conn, $sql);
@@ -58,8 +70,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     
 } else {
+    // Modified: Updated message to include captcha field
     $response['status'] = 'error';
-    $response['message'] = 'Both fields are required';
+    $response['message'] = 'All fields (email, password, captcha) are required';
 }
 
 // Return the response

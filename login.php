@@ -40,7 +40,6 @@ if (isset($_SESSION['uid'])) {
 <head>
   <meta charset="UTF-8">
   <title>School Management System</title>
-  <!-- Fontawesome CDN Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
@@ -51,7 +50,6 @@ if (isset($_SESSION['uid'])) {
 
 <body>
   <div class="container">
-    <!-- <input type="checkbox" id="flip"> -->
     <div class="cover">
       <div class="front">
         <img src="images/log.jpg" alt=""><br>
@@ -59,13 +57,6 @@ if (isset($_SESSION['uid'])) {
           <span class="text-1" style="font-size:1.6rem;font-weight:bold;margin-bottom:30px;">SCHOOL MANAGEMENT SYSTEM<br></span><br>
       
           <img src="images/2.png" alt="Website Logo" class="small-a" display:flex; style="margin-bottom: 15px;height: 45px; width: 45px; ">
-        <!-- <style>
-        body {
-          background-image: url('./images/mp.jpg');
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-opacity: 0.9;
-        } -->
         </style>
           <span class="text-2" style="margin-right:23px;">Service Before Self</span>
         </div>
@@ -95,6 +86,13 @@ if (isset($_SESSION['uid'])) {
                 <input type="password" name="password" placeholder="Enter your password" id="password" required>
                 <i class="bi bi-eye-fill" style="margin-left:340px;" id="togglePassword"></i>
               </div>
+              <div class="input-box captcha-box">
+                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <img src="generate_captcha.php" alt="CAPTCHA Image" id="captchaImage" style="height: 40px; border: 1px solid #ccc; border-radius: 5px; flex-grow: 1; margin-right: 10px;">
+                  <button type="button" id="refreshCaptcha" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8em;">Refresh</button>
+                </div>
+                <input type="text" name="captcha" placeholder="Enter CAPTCHA" id="captchaInput" required style="margin-top: 10px;">
+              </div>
               <div class="text"><a id="forgotpassword">Forgot password?</a></div>
               <div class="button input-box">
                 <button type="submit" class="btn">
@@ -105,7 +103,6 @@ if (isset($_SESSION['uid'])) {
           </form>
 
 
-          <!-- forgot password gui -->
           <form action="index.php" id="forgotPassword-form" method="post" style="display:none;">
 
             <div class="input-boxes">
@@ -190,15 +187,29 @@ if (isset($_SESSION['uid'])) {
             </div>
           </form>
 
-          <!-- end of forgot password gui -->
-
-
-        </div>
+          </div>
 
       </div>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const captchaImage = document.getElementById('captchaImage');
+      const refreshCaptchaBtn = document.getElementById('refreshCaptcha');
+
+      function refreshCaptcha() {
+        captchaImage.src = 'generate_captcha.php?' + new Date().getTime();
+      }
+
+      if (refreshCaptchaBtn) {
+        refreshCaptchaBtn.addEventListener('click', refreshCaptcha);
+      }
+
+      // Initial CAPTCHA load
+      refreshCaptcha();
+    });
+  </script>
   <script src="index.js"></script>
 
 
