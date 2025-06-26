@@ -67,7 +67,7 @@ if (isset($_SESSION['uid'])) {
       <div class="form-content">
         <div class="login-form">
 
-          <div class="title" id='board-title'>Login</div>
+          <div class="title" id='board-title' style="margin-top:25px;">Login</div>
 
           <div class="alert-box">
             <div class="alert alert-danger text-center mt-3" role="alert" id="error-msg">
@@ -84,7 +84,7 @@ if (isset($_SESSION['uid'])) {
               <div class="input-box">
                 <i class="fas fa-lock"></i>
                 <input type="password" name="password" placeholder="Enter your password" id="password" required>
-                <i class="bi bi-eye-fill" style="margin-left:340px;" id="togglePassword"></i>
+                <i class="bi bi-eye-fill" style="margin-left:405px;" id="togglePassword"></i>
               </div>
               <div class="input-box captcha-box">
                 <div style="display:inline; align-items: center; justify-content: space-between; width:370px;">
@@ -95,7 +95,7 @@ if (isset($_SESSION['uid'])) {
               </div>
               <div class="text"><a id="forgotpassword" style="margin-right:10px;">Forgot password?</a></div>
               <div class="button input-box">
-                <button type="submit" class="btn" style="margin-top:40px;">
+                <button type="submit" class="btn" style="margin-top:0px;margin-right:60px;">
                  Login
                 </button>
               </div>
