@@ -87,15 +87,15 @@ if (isset($_SESSION['uid'])) {
                 <i class="bi bi-eye-fill" style="margin-left:340px;" id="togglePassword"></i>
               </div>
               <div class="input-box captcha-box">
-                <div style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
-                  <img src="generate_captcha.php" alt="CAPTCHA Image" id="captchaImage" style="height: 40px; border: 1px solid #ccc; border-radius: 5px; flex-grow: 1; margin-right: 10px;">
-                  <button type="button" id="refreshCaptcha" class="btn btn-secondary" style="padding: 5px 10px; font-size: 0.8em;">Refresh</button>
+                <div style="display:inline; align-items: center; justify-content: space-between; width:370px;">
+                  <img src="generate_captcha.php" alt="CAPTCHA Image" id="captchaImage" style="height: 55px; border: 1px solid #ccc; border-radius: 5px; flex-grow: 0; margin-right: 0px;font-size;1rem;margin-top:50px;">
+                  <button type="button" id="refreshCaptcha" class="btn btn-secondary" style="padding: 8px 8px; font-size: 0.8em;margin-top:10px;margin-right:5;">Refresh</button>
                 </div>
-                <input type="text" name="captcha" placeholder="Enter CAPTCHA" id="captchaInput" required style="margin-top: 10px;">
+                <input type="text" name="captcha" placeholder="Enter CAPTCHA" id="captchaInput" required style="margin-top: 10px;margin-left:30px;">
               </div>
-              <div class="text"><a id="forgotpassword">Forgot password?</a></div>
+              <div class="text"><a id="forgotpassword" style="margin-right:10px;">Forgot password?</a></div>
               <div class="button input-box">
-                <button type="submit" class="btn">
+                <button type="submit" class="btn" style="margin-top:40px;">
                  Login
                 </button>
               </div>
